@@ -32,5 +32,12 @@ npm install -dev typescript ts-node nodemon @types/node @types/express
  "dev": "nodemon src/index.ts",
  "build": "tsc -p ."
 ```
-#### Use the scripts with npm run
+#### In this use nodemon when changing the server we don't want to restart the server  in development mode
+
+## Use the scripts with npm run
+```
+npm run dev // To run in development mode
+npm run build // To compile typescript file to js
+npm run start // To Run the js file
+```
 
