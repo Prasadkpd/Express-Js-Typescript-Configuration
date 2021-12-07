@@ -1,10 +1,11 @@
 import express, {Application, Request, Response} from "express";
-
+import data from './data/data.json';
 const app: Application = express();
 const PORT = 3000;
 
 app.get("/", (request: Request, response: Response) => {
-  response.send(`a get request on port ${PORT}`);
+  console.log(data);
+  response.json(data);
   // response.sendStatus(200);
 });
 
