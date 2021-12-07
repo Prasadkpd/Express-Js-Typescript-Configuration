@@ -69,3 +69,15 @@ app.use(express.static('public')); //In this we can access any file in the publi
 // this is for images folder on path images
 app.use('/images', express.static('images')); //In this we can access any file in the images folder in root directory
 ```
+
+# 4. Routing Parameters
+
+```
+app.get('/item/:id', (request: Request, response: Response) => {
+  console.log(request.params.id); // Get the parameter id in the request
+  let user = Number(request.params.id); //Convert the string to Number format
+  console.log(user);
+  console.log(data[user]);
+  response.send(data[user]);
+});
+```
