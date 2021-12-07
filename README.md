@@ -1,4 +1,4 @@
-# Configure the TypeScript on PC
+# 1. Configure the TypeScript on PC
 
 ## Install ts-node and typescript globbely
 
@@ -40,4 +40,22 @@ npm run dev // To run in development mode
 npm run build // To compile typescript file to js
 npm run start // To Run the js file
 ```
+# 2. Add data To the Server
 
+## First https://www.mockaroo.com/ get data file from this
+
+## Then uncomment the following configuration in ts.config file
+```
+"resolveJsonModule": true, 
+```
+
+## Then import data and add to server and resonse the data
+```
+import data from './data/data.json';
+
+app.get("/", (request: Request, response: Response) => {
+  console.log(data);
+  response.json(data);
+  // response.sendStatus(200);
+});
+```
