@@ -110,3 +110,22 @@ app.get('/item/:id', (request: Request, response: Response, next:NextFunction) =
 - res.send()	         Send a response of various types.
 - res.sendFile()	     Send a file as an octet stream.
 - res.sendStatus()	   Set the response status code and send its string representation as the response body.
+
+# 7. Routing Chaining
+
+You can create chainable route handlers for a route path by using app.route(). Because the path is specified at a single location, creating modular routes is helpful, as is reducing redundancy and typos. For more information about routes, see: Router() documentation.
+
+Here is an example of chained route handlers that are defined by using app.route().
+
+```
+app.route('/newpath')
+    .get((request: Request, response: Response) => {
+      response.send(`a get request with /newpath route on port ${PORT}`)
+    })
+    .put((request: Request, response: Response) => {
+      response.send(`a put request with /newpath route on port ${PORT}`)
+    })
+    .delete((request: Request, response: Response) => {
+      response.send(`a delete request with /newpath route on port ${PORT}`)
+    });
+```
