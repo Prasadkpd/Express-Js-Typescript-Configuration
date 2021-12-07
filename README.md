@@ -81,3 +81,22 @@ app.get('/item/:id', (request: Request, response: Response) => {
   response.send(data[user]);
 });
 ```
+# 5. Route Handlers
+You can provide multiple callback functions that behave like middleware to handle a request. The only exception is that these callbacks might invoke next('route') to bypass the remaining route callbacks. You can use this mechanism to impose pre-conditions on a route, then pass control to subsequent routes if there’s no reason to proceed with the current route.
+
+```
+app.get('/item/:id', (request: Request, response: Response, next:NextFunction) => {
+  console.log(request.params.id); // Get the parameter id in the request
+  let user = Number(request.params.id); //Convert the string to Number format
+  console.log(user);
+  console.log(data[user]);
+  response.send(data[user]);
+  next();
+}, (response: Response, request: Request) => {
+  //In this can make a function before or after a request
+  console.log('Did you get the right data');
+});
+```
+
+
+
