@@ -27,6 +27,13 @@ app.get('/item/:id', (request: Request, response: Response, next:NextFunction) =
   console.log('Did you get the right data');
 });
 
+app.get('/images', (request: Request, response: Response) =>
+        response.download('images/rocket.jpg')
+    //res.redirect('http://www.linkedin.com')
+    //res.end()
+    //res.send(`a put request with /item route on port ${PORT}`)
+);
+
 app.post('/new', (request: Request, response: Response) => {
   response.send(`a post request with /new route on port ${PORT}`);
     // response.sendStatus(200);  
