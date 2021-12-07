@@ -15,6 +15,14 @@ app.get("/", (request: Request, response: Response) => {
   // response.sendStatus(200);
 });
 
+app.get('/item/:id', (request: Request, response: Response) => {
+  console.log(request.params.id); // Get the parameter id in the request
+  let user = Number(request.params.id); //Convert the string to Number format
+  console.log(user);
+  console.log(data[user]);
+  response.send(data[user]);
+});
+
 app.post('/new', (request: Request, response: Response) => {
   response.send(`a post request with /new route on port ${PORT}`);
     // response.sendStatus(200);  
