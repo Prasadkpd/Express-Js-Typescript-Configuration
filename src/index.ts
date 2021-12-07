@@ -1,5 +1,6 @@
 import express, {Application, NextFunction, Request, Response} from "express";
 import data from './data/data.json';
+
 const app: Application = express();
 const PORT = 3000;
 
@@ -15,7 +16,7 @@ app.get("/", (request: Request, response: Response) => {
   // response.sendStatus(200);
 });
 
-app.get('/item/:id', (request: Request, response: Response, next:NextFunction) => {
+app.get('/item/:id', (request: Request, response: Response, next: NextFunction) => {
   console.log(request.params.id); // Get the parameter id in the request
   let user = Number(request.params.id); //Convert the string to Number format
   console.log(user);
@@ -34,9 +35,20 @@ app.get('/images', (request: Request, response: Response) =>
     //res.send(`a put request with /item route on port ${PORT}`)
 );
 
+app.route('/newpath')
+    .get((request: Request, response: Response) => {
+      response.send(`a get request with /newpath route on port ${PORT}`)
+    })
+    .put((request: Request, response: Response) => {
+      response.send(`a put request with /newpath route on port ${PORT}`)
+    })
+    .delete((request: Request, response: Response) => {
+      response.send(`a delete request with /newpath route on port ${PORT}`)
+    });
+
 app.post('/new', (request: Request, response: Response) => {
   response.send(`a post request with /new route on port ${PORT}`);
-    // response.sendStatus(200);  
+  // response.sendStatus(200);
 });
 
 app.put("/put", (request: Request, response: Response) => {
