@@ -59,3 +59,13 @@ app.get("/", (request: Request, response: Response) => {
   // response.sendStatus(200);
 });
 ```
+
+# 3. Add Static Route For serving
+
+```
+// This is for the public folder on path /
+app.use(express.static('public')); //In this we can access any file in the public folder in root directory
+
+// this is for images folder on path images
+app.use('/images', express.static('images')); //In this we can access any file in the images folder in root directory
+```
