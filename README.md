@@ -5,6 +5,10 @@
 ```
 npm install -g typescript ts-node
 ```
+## Configure NPM On Project
+```
+npm init y
+```
 
 ## Configure TypeScript On Project
 In this create a file called tsconfig.json
