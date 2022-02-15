@@ -7,7 +7,7 @@ npm install -g typescript ts-node
 ```
 ## Configure NPM On Project
 ```
-npm init y
+npm init -y
 ```
 
 ## Configure TypeScript On Project
